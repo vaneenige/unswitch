@@ -1,0 +1,54 @@
+{
+  "name": "unswitch",
+  "version": "1.0.0",
+  "description": "A tiny (400b) event handler for switch controllers on the web.",
+  "main": "dist/unswitch.es.js",
+  "unpkg": "dist/unswitch.iife.js",
+  "scripts": {
+    "demo": "DEBUG=true rollup -c -w",
+    "build": "npm run es && npm run iife",
+    "es": "rollup -c -f es -o $npm_package_main && gzip-size $npm_package_main",
+    "iife": "rollup -c -f iife -o $npm_package_unpkg && gzip-size $npm_package_unpkg",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaneenige/unswitch.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Colin van Eenige",
+    "email": "cvaneenige@gmail.com",
+    "url": "https://use-the-platform.com"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "controller",
+    "input"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "gzip-size-cli": "^3.0.0",
+    "karmatic": "^1.2.0",
+    "rollup": "^0.62.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-eslint": "^4.0.0",
+    "rollup-plugin-serve": "^0.4.2",
+    "rollup-plugin-uglify": "^3.0.0",
+    "webpack": "^4.16.1"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+      "browser": true
+    }
+  }
+}
