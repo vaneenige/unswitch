@@ -37,13 +37,11 @@
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
     "gzip-size-cli": "^3.0.0",
-    "karmatic": "^1.2.0",
     "rollup": "^0.62.0",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-eslint": "^4.0.0",
     "rollup-plugin-serve": "^0.4.2",
-    "rollup-plugin-uglify": "^3.0.0",
-    "webpack": "^4.16.1"
+    "rollup-plugin-uglify": "^3.0.0"
   },
   "eslintConfig": {
     "extends": "airbnb-base",
