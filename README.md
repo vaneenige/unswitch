@@ -13,6 +13,17 @@ Unswitch is a tiny (400b) event handler for Switch controllers on the web based 
 $ npm install --save unswitch
 ```
 
+## Setup
+Connecting a Switch controller is easy: pair it with bluetooth and you're ready to go! This library doesn't listen to `connected` or `disconnected` events but in some cases it might be useful. Here's how you can listen to these events:
+
+```js
+window.addEventListener("gamepadconnected", ({ gamepad }) => {});
+```
+
+```js
+window.addEventListener("gamepaddisconnected", ({ gamepad }) => {});
+```
+
 ## Usage
 
 ```js
