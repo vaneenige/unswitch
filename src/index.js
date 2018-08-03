@@ -11,7 +11,7 @@ function Unswitch(s) {
   this.update = () => {
     const gamepads = navigator.getGamepads();
     for (let i = 0; i < Object.keys(gamepads).length; i += 1) {
-      if (gamepads[i].id && gamepads[i].id.indexOf(this.c.side) !== -1) {
+      if (gamepads[i] && gamepads[i].id && gamepads[i].id.indexOf(this.c.side) !== -1) {
         const pad = gamepads[i];
         const { buttons, axes } = pad;
         for (let j = 0; j < m.length; j += 1) {
