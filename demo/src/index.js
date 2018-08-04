@@ -18,6 +18,9 @@ const controllerLeft = new Controller({
   x: pressed => logButton('1 ~ X', pressed),
   l: pressed => logButton('1 ~ L', pressed),
   r: pressed => logButton('1 ~ R', pressed),
+  minus: pressed => logButton('1 ~ Minus', pressed),
+  screenshot: pressed => logButton('1 ~ Screenshot', pressed),
+  lstick: pressed => logButton('1 ~ L Stick', pressed),
   axes: position => LogAxes('1', position),
 });
 
@@ -29,6 +32,9 @@ const controllerRight = new Controller({
   x: pressed => logButton('2 ~ X', pressed),
   l: pressed => logButton('2 ~ L', pressed),
   r: pressed => logButton('2 ~ R', pressed),
+  plus: pressed => logButton('2 ~ Plus', pressed),
+  home: pressed => logButton('2 ~ Home', pressed),
+  rstick: pressed => logButton('2 ~ R Stick', pressed),
   axes: position => LogAxes('2', position),
 });
 

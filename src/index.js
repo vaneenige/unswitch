@@ -1,4 +1,4 @@
-const buttonMappings = ['b', 'a', 'y', 'x', 'l', 'r'];
+const buttonMappings = ['a', 'x', 'b', 'y', 'l', 'r', 'UNUSED', 'UNUSED', 'minus', 'plus', 'lstick', 'rstick', 'home', 'screenshot', 'side', 'z'];
 
 function Unswitch(userSettings) {
   this.axisPosition = 8;
