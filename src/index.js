@@ -1,4 +1,24 @@
-const buttonMappings = ['a', 'x', 'b', 'y', 'l', 'r', 'UNUSED', 'UNUSED', 'minus', 'plus', 'lstick', 'rstick', 'home', 'screenshot', 'side', 'z'];
+const buttonMappings = ['a', 'x', 'b', 'y', 'l', 'r', 'UNUSED', 'UNUSED', 'minus', 'plus', 'lstick', 'rstick', 'home', 'screenshot', 'sidetrigger', 'z'];
+const usesChromeAxes = axes => axes.length === 10;
+
+// Used by Firefox, Safari
+const ffAxisPosition = (buttons) => {
+  const [right, left, down, up] = [...buttons].reverse();
+  const buttonValues = [up, right, down, left]
+    .map((pressed, i) => (pressed.value ? (i * 2) : false))
+    .filter(val => val !== false);
+  if (buttonValues.length === 0) {
+    return 8;
+  }
+  if (buttonValues.length === 2 && buttonValues[0] === 0 && buttonValues[1] === 6) {
+    return 7;
+  }
+  const buttonSums = buttonValues.reduce((prev, curr) => prev + curr, 0);
+  return buttonSums / buttonValues.length;
+};
+
+// Used by Chrome
+const chromeAxisPosition = axes => Math.round(axes[9] / (2 / 7) + 3.5);
 
 function Unswitch(userSettings) {
   this.axisPosition = 8;
@@ -28,7 +48,7 @@ function Unswitch(userSettings) {
       }
     }
     if (this.settings.axes) {
-      const position = Math.round(axes[9] / (2 / 7) + 3.5);
+      const position = usesChromeAxes(axes) ? chromeAxisPosition(axes) : ffAxisPosition(buttons);
       if (position !== this.axisPosition) {
         this.settings.axes(position);
         this.axisPosition = position;
