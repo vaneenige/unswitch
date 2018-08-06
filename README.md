@@ -39,6 +39,14 @@ const unswitch = new Unswitch({
   x: (pressed) => {},
   l: (pressed) => {},
   r: (pressed) => {},
+  minus: (pressed) => {},
+  plus: (pressed) => {},
+  lstick: (pressed) => {},
+  rstick: (pressed) => {},
+  home: (pressed) => {},
+  screenshot: (pressed) => {},
+  side: (pressed) => {}, // The 'Side' button near ZL or ZR
+  z: (pressed) => {}, // ZL or ZR
   axes: (position) => {},
 });
 
