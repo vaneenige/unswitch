@@ -32,28 +32,28 @@ window.addEventListener("gamepaddisconnected", ({ gamepad }) => {});
 // Import the library
 import Unswitch from 'unswitch';
 
-// Create the listener
+// Observe a controller
 const unswitch = new Unswitch({
   side: 'L', // or R
-  b: (pressed) => {},
-  a: (pressed) => {},
-  y: (pressed) => {},
-  x: (pressed) => {},
-  l: (pressed) => {},
-  r: (pressed) => {},
-  minus: (pressed) => {},
-  plus: (pressed) => {},
-  lstick: (pressed) => {},
-  rstick: (pressed) => {},
-  home: (pressed) => {},
-  screenshot: (pressed) => {},
-  side: (pressed) => {}, // The 'Side' button near ZL or ZR
-  z: (pressed) => {}, // ZL or ZR
-  axes: (position) => {},
+  b: p => {},
+  a: p => {},
+  y: p => {},
+  x: p => {},
+  sl: p => {},
+  sr: p => {},
+  minus: p => {},
+  plus: p => {},
+  lstick: p => {},
+  rstick: p => {},
+  home: p => {},
+  screenshot: p => {},
+  bumper: p => {}, // L or R
+  trigger: p => {}, // ZL or ZR
+  axes: p => {},
 });
 
 function render() {
-  // Check for button stateupdates
+  // Call the update function manually
   unswitch.update();
   requestAnimationFrame(render);
 }
