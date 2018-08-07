@@ -5,7 +5,7 @@
 [![license](https://img.shields.io/npm/l/unswitch.svg)](https://github.com/vaneenige/unswitch/blob/master/LICENSE)
 [![dependencies](https://img.shields.io/badge/dependencies-none-ff69b4.svg)](https://github.com/vaneenige/unswitch/blob/master/package.json)
 
-Unswitch is a tiny (400b) event handler for Switch controllers on the web based on the Gamepad API. Attach callbacks to button presses (up & down) and the joystick!
+Unswitch is a tiny event handler for Switch controllers on the web based on the Gamepad API. Attach callbacks to button presses (up & down) and the joystick!
 
 ## Install
 

@@ -1,7 +1,7 @@
 {
   "name": "unswitch",
   "version": "1.2.0",
-  "description": "A tiny (400b) event handler for switch controllers on the web.",
+  "description": "A tiny event handler for switch controllers on the web.",
   "main": "dist/unswitch.es.js",
   "unpkg": "dist/unswitch.iife.js",
   "scripts": {
