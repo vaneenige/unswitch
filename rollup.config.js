@@ -35,6 +35,7 @@ const uglifySettings = {
   },
   mangle: {
     toplevel: true,
+    reserved: ['Unswitch'],
   },
 };
 
