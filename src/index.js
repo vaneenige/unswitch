@@ -1,4 +1,4 @@
-const buttonMappings = ['a', 'x', 'b', 'y', 'l', 'r', '-', '-', 'minus', 'plus', 'lstick', 'rstick', 'home', 'screenshot', 'sidetrigger', 'z'];
+const buttonMappings = ['a', 'x', 'b', 'y', 'sl', 'sr', '-', '-', 'minus', 'plus', 'lstick', 'rstick', 'home', 'screenshot', 'bumper', 'trigger'];
 
 /**
  * Get the axes position based based on browser.
