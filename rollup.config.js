@@ -33,6 +33,9 @@ const uglifySettings = {
   output: {
     comments: false,
   },
+  mangle: {
+    toplevel: true,
+  },
 };
 
 const input = DEBUG ? './demo/src/index.js' : './src/index.js';
