@@ -10,9 +10,15 @@ function la(controller, position) {
   ul.innerHTML = `<li>${controller} ~ Axes position ${position}</li> ${ul.innerHTML}`;
 }
 
+function catchAll(button, pressed, side) {
+  const enableCatchAll = false;
+  if (enableCatchAll) ul.innerHTML = `<li>Catch-all - button: ${button} was ${pressed ? 'pressed' : 'released'} on the ${side} side</li> ${ul.innerHTML}`;
+}
+
 function createController(s) {
   const controller = new Unswitch({
     side: s,
+    buttons: catchAll,
     b: p => lb(s, ' ~ B', p),
     a: p => lb(s, ' ~ A', p),
     y: p => lb(s, ' ~ Y', p),
