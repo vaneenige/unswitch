@@ -63,7 +63,7 @@ render();
 
 It's possible to connect up to two controllers at the same time. To make this work `side` is to be passed with either `L` (left) or `R` (right) for the controllers respectively. Calling `unswitch.update()` will check every button for a change in state. If a callback is provided the new state is passed along. The axis works in the same way, but instead of a `boolean` it will return a `number` from 0 to 8. Number 0 to 7 are for the joystick positions going clockwise, number 8 is used as default (center).
 
-> Buttons are mapped based on a single controller positioned horizontally.
+> Have a look at the demo on [Codepen](https://codepen.io/cvaneenige/pen/gjdJrP)!
 
 ## Contribute
 
