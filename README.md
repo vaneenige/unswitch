@@ -35,6 +35,7 @@ import Unswitch from 'unswitch';
 // Observe a controller
 const unswitch = new Unswitch({
   side: 'L', // or R
+  buttons: (button, pressed, side) => console.log(`Catch-all - button: ${button} was ${pressed ? 'pressed' : 'released'} on the ${side} side`),
   b: p => {},
   a: p => {},
   y: p => {},
@@ -60,6 +61,9 @@ function render() {
 
 render();
 ```
+
+Please note that it's not required to pass all button-functions to Unswitch and will only be executed when you provide them.
+You are able to use the `buttons` function to catch all button presses and implement your own logic using the provided data. The `buttons` function will always be executed when provided, even when the button is also passed as property.
 
 It's possible to connect up to two controllers at the same time. To make this work `side` is to be passed with either `L` (left) or `R` (right) for the controllers respectively. Calling `unswitch.update()` will check every button for a change in state. If a callback is provided the new state is passed along. The axis works in the same way, but instead of a `boolean` it will return a `number` from 0 to 8. Number 0 to 7 are for the joystick positions going clockwise, number 8 is used as default (center).
 

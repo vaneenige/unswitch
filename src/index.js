@@ -11,7 +11,7 @@ function getAxesPosition(axes, buttons) {
   }
   const [right, left, down, up] = [...buttons].reverse();
   const buttonValues = [up, right, down, left]
-    .map((pressed, i) => (pressed.value ? (i * 2) : false))
+    .map((pressed, i) => (pressed.value ? i * 2 : false))
     .filter(val => val !== false);
   if (buttonValues.length === 0) return 8;
   if (buttonValues.length === 2 && buttonValues[0] === 0 && buttonValues[1] === 6) return 7;
@@ -26,13 +26,13 @@ function Unswitch(settings) {
   const buttonState = {};
   let axesPosition = 8;
 
-  for (let i = 0; i < buttonMappings.length; i += 1) {
+  for (let i = buttonMappings.length - 1; i >= 0; i -= 1) {
     buttonState[buttonMappings[i]] = { pressed: false };
   }
 
   this.update = () => {
     const gamepads = navigator.getGamepads();
-    for (let i = 0; i < Object.keys(gamepads).length; i += 1) {
+    for (let i = Object.keys(gamepads).length - 1; i >= 0; i -= 1) {
       if (gamepads[i] && gamepads[i].id && gamepads[i].id.indexOf(settings.side) !== -1) {
         this.observe(gamepads[i]);
         break;
@@ -42,11 +42,17 @@ function Unswitch(settings) {
 
   this.observe = (pad) => {
     const { buttons, axes } = pad;
-    for (let j = 0; j < buttonMappings.length; j += 1) {
+    for (let j = buttonMappings.length - 1; j >= 0; j -= 1) {
       const button = buttonMappings[j];
-      if (buttonState[button].pressed !== buttons[j].pressed && settings[button]) {
+      if (buttonState[button].pressed !== buttons[j].pressed) {
         buttonState[button].pressed = buttons[j].pressed;
-        settings[button](buttonState[button].pressed);
+        if (settings[button]) {
+          settings[button](buttonState[button].pressed);
+        }
+
+        if (settings.buttons) {
+          settings.buttons(button, buttonState[button].pressed, settings.side);
+        }
       }
     }
     if (settings.axes) {
